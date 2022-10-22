@@ -13,17 +13,14 @@ body, html {
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 15fr;
     width: 100%;
     height: 100%;
 }
 
 .header {
-    position: absolute;
-    top: 0;
+    justify-self: center;
     list-style-type: none;
     width: 80%;
     background-color: white;
@@ -94,7 +91,26 @@ body, html {
     justify-content: space-between;
 }
 
+.galeria {
+    padding: 70px 150px;
+    width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.obra {
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+}
+
 @media (max-width: 900px) {
+    .galeria {
+        padding: 20px;
+    }
+
     .header-collapsed {
         display: flex;
     }

@@ -1,7 +1,8 @@
 <?php
+session_start();
 
 # Conexão com o db
-$conn = new mysqli("localhost", "user", "password", "db");
+$conn = new mysqli("localhost", "username", "pwd", "db");
 
 # Verifica se a conexão com o db está ok
 if ($conn->connect_errno) {
@@ -20,7 +21,10 @@ if ($users = $result->fetch_all()) {
     foreach($users as $user) {
         if ($user[1] == $email && $user[2] == $senha) {
             # Redireciona para o início se as informações estão corretas
-            header('Location: index.php');
+            session_regenerate_id();
+            $_SESSION['logado'] = TRUE;
+            $_SESSION['id'] = $user[0];
+            header('Location: ../index.php');
         }
     }
 }

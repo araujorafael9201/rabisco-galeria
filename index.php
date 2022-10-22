@@ -9,32 +9,24 @@
 </head>
 <body>
     <div class="container">
-        <ul class="header">
-            <div class="header-content">
-                <div class="links header-section">
-                    <li><a href="/">Início</a></li>
-                    <li><a href="">Galeria</a></li>
-                    <li><a href="">Sobre</a></li>
-                </div>
-                <li class="logo header-section">
-                    <a href="/">Rabisco</a>
-                </li>
-                <div class="search header-section">
-                    <form action="">
-                        <input type="text" placeholder="Pesquise Aqui...">
-                        <input type="submit" value="Enviar">
-                    </form>
-                </div>
-            </div>
+        <?php 
+        include('header.php');
+        ?>
 
-            <div class="header-collapsed">
-                <a class="logo-collapsed" href="/">Rabisco</a>
-                <button onclick="toggleContent()" class="collapsable-control">
-                    <img src="static/img/collapse.svg" alt="">
-                </button>
-            </div>
+        <div class="galeria">
+            <?php 
+            $dir = getcwd() . '/obras';
+            $obras = scandir($dir);
 
-        </ul>
+            foreach($obras as $obra) {
+                if ($obra != '..' && $obra != '.') {
+                    echo '<img class="obra" src="obras/' . $obra . '"></img>';
+                }
+            }
+            ?>
+        </div>
+
+        <a href="login.html">Login</a>
     </div>
 
     <script src="main.js"></script>
