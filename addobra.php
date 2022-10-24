@@ -17,8 +17,8 @@
 
         ?>
         <form action="php/adicionar.php" method='POST' enctype="multipart/form-data">
+            <input type="text" name="titulo" placeholder='Título: '>
             <textarea name="desc" cols="30" rows="10" placeholder="Descrição"></textarea>
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
             <input type="file" name="arquivo">
             <input type="submit" value="Enviar">
         </form>

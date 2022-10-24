@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,14 +13,19 @@
         ?>
 
         <div class="galeria">
-            <?php 
-            $dir = getcwd() . '/obras';
-            $obras = scandir($dir);
+            <?php
+            # Conexão com o db
+            $conn = new mysqli("localhost", "user", "pwd", "db");
+
+            $obras = $conn->query('select * from obra o join user u on o.autor = u.id;');
 
             foreach($obras as $obra) {
-                if ($obra != '..' && $obra != '.') {
-                    echo '<img class="obra" src="obras/' . $obra . '"></img>';
-                }
+                echo '<div>';
+                echo '<img class="obra" src="obras/' . $obra['filename'] . '"></img>';
+                echo '<h2>' . $obra['titulo']  . '</h2>';
+                echo '<h3>' . $obra['nome'] . '</h3>';
+                echo '<p>' . $obra['descricao']  . '</p>';
+                echo '</div>';
             }
             ?>
         </div>
