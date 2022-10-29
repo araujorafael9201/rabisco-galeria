@@ -62,6 +62,10 @@ main .gallery-grid .post img {
     object-fit: cover;
 }
 
+main .gallery-grid .post .info {
+    display: none;
+}
+
 
 /* RESPONSIVINESS */
 @media (max-width: 420px) {
