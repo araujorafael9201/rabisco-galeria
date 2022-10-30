@@ -42,15 +42,17 @@ main .title {
 }
 
 main .gallery-grid {
-    max-width: 700px;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
     min-height: 55vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-auto-rows: min-content;
+    grid-gap: 1rem;
 }
 main .gallery-grid .post {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     aspect-ratio: 1/1;
     overflow: hidden;
     display: flex;
@@ -60,12 +62,14 @@ main .gallery-grid .post img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 main .gallery-grid .post .info {
     display: none;
 }
 
+/* MODAL STYLING */
 .modal {
     display: none;
 
@@ -108,22 +112,26 @@ main .gallery-grid .post .info {
     width: 50%;
     padding: 4%;
 }
+
 .modal .modal-content .info .title {
     display: inline-block;
     width: 69%;
     font-size: 1rem;
 }
+
 .modal .modal-content .info .date {
     display: inline-block;
     width: 29%;
     text-align: end;
     font-size: 0.8rem;
 }
+
 .modal .modal-content .info .author {
     display: block;
     margin-top: 0.4rem;
     margin-bottom: 0.3rem;
 }
+
 .modal .modal-content .info .description {
     display: block;
     width: 100%;
@@ -132,6 +140,7 @@ main .gallery-grid .post .info {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 .modal .close-modal {
     position: absolute;
     right: 2%;
@@ -141,9 +150,16 @@ main .gallery-grid .post .info {
     border: none;
     cursor: pointer;
 }
+
 .modal .close-modal img {
     filter: invert(1);
 }
+
+.modal.show {
+    display: block;
+}
+
+
 /* RESPONSIVINESS */
 @media (max-width: 420px) {
     body {
@@ -154,6 +170,7 @@ main .gallery-grid .post .info {
 @media (min-width: 720px) {
     main .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
+        transform: scale(1.1);
     }
 }
 

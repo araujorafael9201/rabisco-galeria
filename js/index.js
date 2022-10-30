@@ -1,3 +1,41 @@
+// Just to close the modal
+function closeModal() {
+    modal.style.display = "none"
+}
+
+// Getting all the info about the selected post and
+// display the modal
+function changeModal() {
+    // Getting every information about the post
+    let title = this.querySelector('.info .title').textContent
+    let date = this.querySelector('.info .date').textContent
+    let author = this.querySelector('.info .author').textContent
+    let description = this.querySelector('.info .description').textContent
+    let img = this.querySelector('img').src
+
+    // Verifying if has no empty
+    title = !title ? "vazio" : title
+    date = !date ? "vazio" : date
+    author = !author ? "vazio" : author
+    description = !description ? "vazio" : description
+    img = !img ? "vazio" : img
+
+
+    // Changing in the modal info include the image link
+    let modalImg = modal.querySelector('.img-container img')
+    let infoTab = modal.querySelector('.info')
+    infoTab.querySelector('.title').textContent = title
+    infoTab.querySelector('.date').textContent = date
+    infoTab.querySelector('.author').textContent = author
+    infoTab.querySelector('.description').textContent = description
+    modalImg.src = img
+
+    // Displaying the modal
+    modal.style.display = "block"
+}
+
+
+// Getting all the elements to be used
 const modal = document.querySelector('.modal')
 const modalContent = document.querySelector('.modal-content')
 const modalCloseButton = document.querySelector('.close-modal')
@@ -11,6 +49,7 @@ window.addEventListener('click', e => {
     }
 })
 
-function closeModal() {
-    modal.style.display = "none"
-}
+// Getting every post to have the modal function
+posts.forEach((post) => {
+    post.addEventListener('click', changeModal)
+})
