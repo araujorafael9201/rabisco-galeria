@@ -66,7 +66,84 @@ main .gallery-grid .post .info {
     display: none;
 }
 
+.modal {
+    display: none;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal .modal-content {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 65%;
+    width: 80%;
+    background-color: #FFF;
+}
+
+.modal .modal-content .img-container {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+}
+
+.modal .modal-content .img-container > img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal .modal-content .info {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 50%;
+    padding: 4%;
+}
+.modal .modal-content .info .title {
+    display: inline-block;
+    width: 69%;
+    font-size: 1rem;
+}
+.modal .modal-content .info .date {
+    display: inline-block;
+    width: 29%;
+    text-align: end;
+    font-size: 0.8rem;
+}
+.modal .modal-content .info .author {
+    display: block;
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+}
+.modal .modal-content .info .description {
+    display: block;
+    width: 100%;
+    height: 80%;
+    margin-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.modal .close-modal {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.modal .close-modal img {
+    filter: invert(1);
+}
 /* RESPONSIVINESS */
 @media (max-width: 420px) {
     body {
@@ -77,5 +154,28 @@ main .gallery-grid .post .info {
 @media (min-width: 720px) {
     main .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .modal .modal-content {
+        display: block;
+        width: 80%;
+        height: 85%;
+    }
+
+    .modal .modal-content .img-container {
+        width: 100%;
+        height: 50%;
+    }
+    .modal .modal-content .info {
+        width: 100%;
+        height: 43%;
+    }
+}
+
+@media (max-width: 280px) {
+    .modal .modal-content .info {
+        height: 40%;
     }
 }
