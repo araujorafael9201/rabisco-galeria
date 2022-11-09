@@ -1,0 +1,121 @@
+/* IMPORTING FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+
+/*** RESET PAGE CONFIGURATION ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*** DEFINING COLORS AND SIZE ***/
+:root{
+    --background-color: rgba(0,0,0,0.8);
+    --primary-color: rgba(0,0,0,0.8);
+    --secondary-color: rgba(255,255,255,1);
+}
+
+/*** BODY STYLING ***/
+body {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: 0 6%;
+}
+
+/*** MAIN SECTION ***/
+main {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 5rem;
+    width: 100%;
+    min-height: 90vh;
+    background-color: var(--secondary-color);
+    padding: 2rem 10%;
+}
+
+main .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+main .left h1 {
+    font-size: 2.8rem;
+}
+main .left p {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+main .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+main .right form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+main .right form .line {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-bottom: 1rem;
+}
+
+main .right form .line input:not([type="submit"]) {
+    margin-top: 5px;
+    padding: 0 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 100%;
+}
+
+main .right form .line textarea {
+    padding: 0.5rem;
+    margin-top: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    width: 100%;
+    resize: none;
+}
+
+main .right form .half.line {
+    width: 42.5%;
+}
+
+main .right form input[type="submit"] {
+    margin: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: .6rem;
+    padding: .6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media (min-width: 950px) {
+    main {
+        padding: 2rem 15%;
+    }
+}
+@media (min-width: 1600px) {
+    main {
+        padding: 2rem 23%;
+    }
+}
