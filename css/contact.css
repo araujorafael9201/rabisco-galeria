@@ -95,6 +95,9 @@ main .right form .line textarea {
 main .right form .half.line {
     width: 42.5%;
 }
+main .right form .half.line p {
+    font-size: .9rem;
+}
 
 main .right form input[type="submit"] {
     margin: auto;
@@ -106,6 +109,11 @@ main .right form input[type="submit"] {
     color: var(--secondary-color);
     text-decoration: none;
     font-size: 1.2rem;
+    font-weight: 500;
+}
+
+main .right form #message {
+    color: red;
     font-weight: 500;
 }
 
