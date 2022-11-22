@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha conta</title>
+
+    <!-- INDEX STYLE -->
+    <link rel="stylesheet" href="css/profile.css">
+
+    <!-- HEADER STYLE -->
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+    
+<header class="navbar">
+    <input type="checkbox" id="collapseMenu">
+    <label for="collapseMenu">
+        <img src="img/hamburguer_menu.svg" alt="M">
+    </label>
+    <div class="nav-links">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="contact.html">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-logo">
+        <h1>Rabisco</h1>
+    </div>
+    <div class="nav-login">
+        <a href="#">Logar</a>
+        <!-- <a href="#" class="logged">Olá, usuário</a> -->
+    </div>
+</header>
+
+<main>
+    <!-- TAB SELECTOR -->
+    <input type="radio" name="tabs" id="publish" checked>
+    <input type="radio" name="tabs" id="publications">
+
+    <!-- TAB LABELS -->
+    <div class="nav">
+        <label for="publish">Publicar</label>
+        <div class="vl"></div>
+        <label for="publications">Minhas postagens</label>
+    </div>
+
+    <!-- ACTUAL TABS -->
+    <div class="tab" id="publish">
+        <form action="" class="publish">
+            <div class="row">
+                <p>Título</p>
+                <input type="text" name="title">
+            </div>
+            <div class="row">
+                <p>Imagem</p>
+                <input type="file" accept="image/*">
+            </div>
+            <div class="row">
+                <p>Descrição</p>
+                <textarea name="description"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="tab" id="publications">
+        Postagem
+    </div>
+</main>
+
+</body>
+</html>
