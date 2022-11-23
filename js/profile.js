@@ -12,3 +12,22 @@ imageInput.addEventListener("change", () => {
 deleteButton.addEventListener("click", () => {
     console.log("Deletar publicação")
 })
+
+/*** If admin ***/
+const passwordToggleInputs = document.querySelectorAll("#showPasswordInput")
+passwordToggleInputs.forEach((toggle) => {
+    toggle.addEventListener("click", passwordToggle)
+})
+function passwordToggle() {
+    const showHideIcon = this.parentElement
+    
+    // el < label < option - info > password > input
+    const referencePasswordInput = 
+        this.parentElement
+            .parentElement
+            .previousElementSibling
+            .querySelector(".info .password > input")
+
+    referencePasswordInput.type = this.checked ? "text" : "password"
+    showHideIcon.classList.toggle("close")
+}

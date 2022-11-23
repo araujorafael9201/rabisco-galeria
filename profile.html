@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha conta</title>
 
-    <!-- INDEX STYLE -->
+    <!-- PROFILE STYLE -->
     <link rel="stylesheet" href="css/profile.css">
 
     <!-- HEADER STYLE -->
@@ -40,13 +40,17 @@
 <main>
     <!-- TAB SELECTOR -->
     <input type="radio" name="tabs" id="publish">
-    <input type="radio" name="tabs" id="publications" checked>
+    <input type="radio" name="tabs" id="publications">
+    <input type="radio" name="tabs" id="manage" checked>
 
     <!-- TAB LABELS -->
     <div class="nav">
         <label for="publish">Publicar</label>
         <div class="vl"></div>
         <label for="publications">Minhas postagens</label>
+        <!-- if is admin user -->
+        <div class="vl"></div>
+        <label for="manage">Administrar usuarios</label>
     </div>
 
     <!-- ACTUAL TABS -->
@@ -87,6 +91,49 @@
                     <p class="description">
                         Descrição
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab" id="manage">
+        <div class="users">
+            <div class="user">
+                <div class="id-container">
+                    #<span id="id">1</span>
+                </div>
+                <div class="info">
+                    <p class="name">Nome: <span>Administrador</span></p>
+                    <p class="email">E-mail: <span>admin@admin.com</span></p>
+                    <p class="password">
+                        Senha:
+                        <input type="password" value="12345678" disabled>
+                    </p>
+                </div>
+                <div class="option">
+                    <label id="showPassword">
+                        <input type="checkbox" id="showPasswordInput" class="hide">
+                    </label>
+                    <div id="deleteUser"></div>
+                </div>
+            </div>
+            <div class="user">
+                <div class="id-container">
+                    #<span id="id">1</span>
+                </div>
+                <div class="info">
+                    <p class="name">Nome: <span>Administrador</span></p>
+                    <p class="email">E-mail: <span>admin@admin.com</span></p>
+                    <p class="password">
+                        Senha:
+                        <input type="password" value="12345678" disabled>
+                    </p>
+                </div>
+                <div class="option">
+                    <label id="showPassword">
+                        <input type="checkbox" id="showPasswordInput" class="hide">
+                    </label>
+                    <div id="deleteUser"></div>
                 </div>
             </div>
         </div>
