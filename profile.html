@@ -11,6 +11,9 @@
 
     <!-- HEADER STYLE -->
     <link rel="stylesheet" href="css/header.css">
+
+    <!-- PROFILE SCRIPT -->
+    <script src="js/profile.js" defer></script>
 </head>
 <body>
     
@@ -49,22 +52,30 @@
     <!-- ACTUAL TABS -->
     <div class="tab" id="publish">
         <form action="" class="publish">
-            <div class="row">
-                <p>Título</p>
-                <input type="text" name="title">
-            </div>
-            <div class="row">
-                <p>Imagem</p>
-                <input type="file" accept="image/*">
-            </div>
-            <div class="row">
-                <p>Descrição</p>
-                <textarea name="description"></textarea>
-            </div>
+            <p>Título</p>
+            <input type="text" name="title">
+            <p>Imagem</p>
+            <label for="sendImage">Enviar Imagem</label>
+            <span id="imageName"></span>
+            <input type="file" accept="image/*" id="sendImage" class="hide">
+            <p>Descrição</p>
+            <textarea name="description"></textarea>
+            <input type="submit" value="Publicar">
         </form>
     </div>
+
     <div class="tab" id="publications">
-        Postagem
+        <div class="posts">
+            <div class="post">
+                <img src="https://via.placeholder.com/160x130" alt="">
+                <div class="info">
+                    <h3 class="title"></h3>
+                    <div class="date"></div>
+                    <div class="author"></div>
+                    <p class="description"></p>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
