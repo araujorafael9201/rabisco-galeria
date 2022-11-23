@@ -15,6 +15,7 @@
     --background-color: rgba(0,0,0,0.8);
     --primary-color: rgba(0,0,0,0.8);
     --secondary-color: rgba(255,255,255,1);
+    --tertiary-color: rgba(0,0,0,0.3);
 }
 
 /*** BODY STYLING ***/
@@ -123,7 +124,66 @@ main .tab form.publish #imageName {
     color: green;
 }
 
+
 /*** PUBLICATIONS TAB ***/
+main #publications .posts .post {
+    display: grid;
+    background-color: var(--tertiary-color);
+    grid-template-columns: 12rem 20rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+main #publications .posts .post > img {
+    width: 100%;
+}
+main #publications .posts .post .info {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.8rem 0.6rem;
+}
+main #publications .posts .post .info {
+    height: max-content;
+}
+main #publications .posts .post .info .title {
+    margin-right: auto;
+    margin-bottom: 0.3rem;
+}
+main #publications .posts .post .info .date {
+    margin-left: auto;
+}
+main #publications .posts .post .info .author {
+    margin-right: auto;
+    width: 100%;
+    border-bottom: 1px solid var(--primary-color);
+}
+main #publications .posts .post .info .description {
+    margin-top: 0.4rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    max-height: 4.5rem;
+    word-wrap: break-word;
+}
+main #publications .posts .post #deleteButton {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    aspect-ratio: 1/1;
+    width: 1.5rem;
+}
+main #publications .posts .post #deleteButton img {
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: invert(13%) 
+            sepia(87%) 
+            saturate(5970%) 
+            hue-rotate(358deg) 
+            brightness(107%) 
+            contrast(112%);
+}
 
 /*** UTILITY CLASSES ***/
 .hide {
