@@ -1,0 +1,35 @@
+/* IMPORTING FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+
+/*** RESET PAGE CONFIGURATION ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*** DEFINING COLORS AND SIZE ***/
+:root{
+    --background-color: rgba(0,0,0,0.8);
+    --primary-color: rgba(0,0,0,0.8);
+    --secondary-color: rgba(255,255,255,1);
+}
+
+/*** BODY STYLING ***/
+body {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: 0 6%;
+}
+/*** MAIN SECTION ***/
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 90vh;
+    background-color: var(--secondary-color);
+    padding: 2rem 10% 0 10%;
+}

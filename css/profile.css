@@ -185,9 +185,35 @@ main #publications .posts .post #deleteButton img {
 }
 
 /*** MANAGE TAB ***/
+main #manage .link-container {
+    display: flex;
+    justify-content: center;
+}
+main #manage .register-link {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    outline: 0.0625rem solid var(--primary-color);
+    outline-offset: -0.0625rem;
+    border-radius: 0.4rem;
+    padding: 1rem 1.2rem;
+    transition: 200ms;
+    background-color: var(--secondary-color);
+    margin: auto;
+}
+main #manage .register-link:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    outline: none;
+}
 main input#manage:checked
 ~ #manage {
     display: block;
+}
+main #manage .users {
+    margin-top: 1.5rem;
 }
 main #manage .users .user {
     display: grid;
