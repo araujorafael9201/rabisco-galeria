@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/header.css">
 
     <!-- INDEX JAVASCRIPT -->
-    <!-- <script src="js/index.js" defer></script> -->
+    <script src="js/register.js" defer></script>
 </head>
 <body>
     
@@ -38,8 +38,18 @@
 </header>
 
 <main>
-    
+    <h2>Cadastrar usuário</h2>
+    <form action="">
+        <p>Nome: </p><input type="text" name="name" required>
+        <p>Email: </p><input type="email" name="email" required>
+        <p>Senha: </p><input type="text" name="password" required>
+        <p>Confirmar senha: </p><input type="text" name="passwordConfirm" required>
+        <span id="message"></span>
+        <input type="submit" value="Cadastrar">
+    </form>
 </main>
+
+<section class="alert-box green"></section>
 
 </body>
 </html>
