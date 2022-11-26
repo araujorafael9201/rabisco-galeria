@@ -1,0 +1,3 @@
+email = admin@admin
+senha = rabiscoadministrador1987
+senhaMD5 = c10da9abf972006473e79aa45aa072ff

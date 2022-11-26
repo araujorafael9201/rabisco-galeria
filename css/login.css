@@ -90,3 +90,6 @@ form #passToggle:checked
 form #password {
     padding-right: 2.2rem;
 }
+main form .row strong {
+    font-size: 1rem;
+}
