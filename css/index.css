@@ -30,7 +30,7 @@ main {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    min-height: 90vh;
+    min-height: 95vh;
     background-color: var(--secondary-color);
     padding: 2rem 10% 0 10%;
 }
