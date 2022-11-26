@@ -267,6 +267,35 @@ main #manage .users .user .info .password input {
     color: var(--secondary-color);
 }
 
+/* RESPONSIVINESS */
+@media (max-width: 585px) {
+    main .tab {
+        scale: 0.8;
+    }
+}
+@media (max-width: 480px) {
+    main #manage .users {
+        scale: 0.8;
+    }
+    main .tab {
+        scale: 0.6;
+    }
+}
+@media (max-width: 440px) {
+    main .nav {
+        scale: 0.8;
+    }
+}
+@media (max-width: 420px) {
+    body {
+        padding: 0;
+    }
+}
+@media (max-width: 280px) {
+    main .nav {
+        scale: 0.6;
+    }
+}
 
 /*** UTILITY CLASSES ***/
 .hide {

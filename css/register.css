@@ -115,3 +115,17 @@ main form span {
 .alert-box.show {
     translate: -50%;
 }
+
+/* RESPONSIVINESS */
+@media (max-width: 420px) {
+    body {
+        padding: 0;
+    }
+}
+@media (max-width: 390px) {
+    main form {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+    }
+}
