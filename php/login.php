@@ -22,8 +22,9 @@ foreach ($users as $user) {
     ) {
         $_SESSION['user']['logged'] = TRUE;
         $_SESSION['user']['id'] = $user['id'];
+        $_SESSION['user']['name'] = $user['name'];
         $_SESSION['user']['email'] = $user['email'];
-        header('../profile.php');
+        header('Location: ../profile.php');
         break;
     }
 }

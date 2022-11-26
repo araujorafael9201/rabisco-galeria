@@ -1,5 +1,9 @@
 <?php 
 session_start();
+
+function userLogged() {
+    return $_SESSION['user']['logged'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,8 +39,14 @@ session_start();
         <h1>Rabisco</h1>
     </div>
     <div class="nav-login">
-        <a href="#">Logar</a>
-        <!-- <a href="#" class="logged">Olá, usuário</a> -->
+
+        <?php if (!userLogged()) {
+            echo '<a href="login.html">Logar</a>';
+        } else {
+            echo "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
+        }
+        
+        ?>
     </div>
 </header>
 
