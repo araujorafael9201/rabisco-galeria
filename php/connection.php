@@ -5,6 +5,7 @@ $user = 'root';
 $pass = '';
 $dbna = 'rabisco';
 
+// Database connection
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbna", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

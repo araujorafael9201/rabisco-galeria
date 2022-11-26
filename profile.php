@@ -1,10 +1,20 @@
 <?php 
 session_start();
+require('./php/getUsers.php');
 
-function userLogged() {
-    return $_SESSION['user']['logged'];
+
+if (!isset($_SESSION['user']))
+    header('Location: login.html');
+
+function displayLogin() {
+    if (!$_SESSION['user']['logged']) {
+        return '<a href="login.html">Logar</a>';
+    }
+    return "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,23 +41,14 @@ function userLogged() {
     </label>
     <div class="nav-links">
         <ul>
-            <li><a href="index.html">Início</a></li>
+            <li><a href="index.php">Início</a></li>
             <li><a href="contact.html">Contato</a></li>
         </ul>
     </div>
     <div class="nav-logo">
         <h1>Rabisco</h1>
     </div>
-    <div class="nav-login">
-
-        <?php if (!userLogged()) {
-            echo '<a href="login.html">Logar</a>';
-        } else {
-            echo "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
-        }
-        
-        ?>
-    </div>
+    <div class="nav-login"><?php echo displayLogin(); ?></div>
 </header>
 
 <main>
@@ -111,47 +112,10 @@ function userLogged() {
 
     <div class="tab" id="manage">
         <div class="link-container">
-            <a href="#" class="register-link">Registrar usuário</a>
+            <a href="register.php" class="register-link">Registrar usuário</a>
         </div>
         <div class="users">
-            <div class="user">
-                <div class="id-container">
-                    #<span id="id">1</span>
-                </div>
-                <div class="info">
-                    <p class="name">Nome: <span>Administrador</span></p>
-                    <p class="email">E-mail: <span>admin@admin.com</span></p>
-                    <p class="password">
-                        Senha:
-                        <input type="password" value="12345678" disabled>
-                    </p>
-                </div>
-                <div class="option">
-                    <label id="showPassword">
-                        <input type="checkbox" id="showPasswordInput" class="hide">
-                    </label>
-                    <div id="deleteUser"></div>
-                </div>
-            </div>
-            <div class="user">
-                <div class="id-container">
-                    #<span id="id">1</span>
-                </div>
-                <div class="info">
-                    <p class="name">Nome: <span>Administrador</span></p>
-                    <p class="email">E-mail: <span>admin@admin.com</span></p>
-                    <p class="password">
-                        Senha:
-                        <input type="password" value="12345678" disabled>
-                    </p>
-                </div>
-                <div class="option">
-                    <label id="showPassword">
-                        <input type="checkbox" id="showPasswordInput" class="hide">
-                    </label>
-                    <div id="deleteUser"></div>
-                </div>
-            </div>
+            <?php displayUsers();?>
         </div>
     </div>
 </main>

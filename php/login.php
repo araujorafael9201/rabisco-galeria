@@ -5,6 +5,7 @@ include('connection.php');
 // Verifying variables
 if (empty($_POST['email']) || empty($_POST['password']))
     header('Location: ../login.html?message=Login%20Inválido!');
+$_SESSION['user']['logged'] = FALSE;
 
 // Get information from the form
 $email = $_POST['email'];
@@ -29,4 +30,7 @@ foreach ($users as $user) {
     }
 }
 
+// If not logged
+if (!$_SESSION['user']['logged'])
+    header('Location: ../login.html?message=Credenciais%20Inválidas!');
 ?>
