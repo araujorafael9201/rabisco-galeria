@@ -49,11 +49,11 @@ function displayLogin() {
 
 <main>
     <h2>Cadastrar usuário</h2>
-    <form action="">
-        <p>Nome: </p><input type="text" name="name" required>
-        <p>Email: </p><input type="email" name="email" required>
-        <p>Senha: </p><input type="text" name="password" required>
-        <p>Confirmar senha: </p><input type="text" name="passwordConfirm" required>
+    <form>
+        <p>Nome: </p><input type="text" name="name" require>
+        <p>Email: </p><input type="email" name="email" require>
+        <p>Senha: </p><input type="text" name="password" require>
+        <p>Confirmar senha: </p><input type="text" name="passwordConfirm">
         <span id="message"></span>
         <input type="submit" value="Cadastrar">
     </form>

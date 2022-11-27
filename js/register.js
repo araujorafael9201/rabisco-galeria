@@ -12,8 +12,8 @@ function verifyPassword() {
 }
 
 function alertBox(color, message="") {
-    alertBoxElement.classList.add("show")
-
+    alertBoxElement.style.display = "flex"
+    
     if (color === 1) {
         alertBoxElement.classList.remove("red")
         alertBoxElement.classList.add("green")
@@ -23,10 +23,16 @@ function alertBox(color, message="") {
         alertBoxElement.classList.add("red")
     }
     alertBoxElement.innerText = message
-
+    
+    setTimeout(() => {
+        alertBoxElement.classList.add("show")
+    }, 100);
     setTimeout(() => {
         alertBoxElement.classList.remove("show")
-    }, 2000);
+    }, 2100);
+    setTimeout(() => {
+        alertBoxElement.style.display = "none"
+    }, 2600)
 }
 
 const form = document.querySelector("form")
@@ -38,25 +44,26 @@ const messageForm = form.querySelector("span")
 const alertBoxElement = document.querySelector(".alert-box")
 
 form.addEventListener("change", verifyPassword)
+
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // if (verifyPassword()) return
+    e.preventDefault()
+    if (verifyPassword()) return
 
+    let formData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        password: passwordInput.value
+    }
 
-    // let formData = {
-    //     name: nameInput.value,
-    //     email: emailInput.value,
-    //     password: passwordInput.value
-    // }
-
-    // fetch("./php/registerUser.php", {
-    //     method: "POST",
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify( formData )
-    // }).then(res => {
-    //     console.log(res)
-    // })
+    fetch("./php/registerUser.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify( formData )
+    }).then((res) => {
+        return res.json()
+    }).then((data) => {
+        alertBox(data['id'], data['message'])
+    })
 })

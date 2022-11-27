@@ -116,6 +116,7 @@ main form span {
     translate: -50%;
 }
 
+
 /* RESPONSIVINESS */
 @media (max-width: 420px) {
     body {
@@ -128,4 +129,9 @@ main form span {
         flex-flow: column;
         align-items: flex-start;
     }
+}
+
+/* UTILITY CLASSES */
+.alert-box.hide {
+    display: none;
 }

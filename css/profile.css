@@ -258,6 +258,11 @@ main #manage .users .user .option .close#showPassword {
 main #manage .users .user .option #deleteUser {
     background-image: url(../img/trash.svg);
 }
+main #manage .users .user .info {
+    overflow: hidden;
+    max-width: 15rem;
+    white-space: nowrap;
+}
 main #manage .users .user .info .name span,
 main #manage .users .user .info .email span,
 main #manage .users .user .info .password input {
