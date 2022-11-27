@@ -15,6 +15,10 @@ deleteButton.addEventListener("click", () => {
 
 /*** If admin ***/
 const passwordToggleInputs = document.querySelectorAll("#showPasswordInput")
+const deleteUserInputs = document.querySelectorAll("#deleteUser")
+
+console.log(deleteUserInputs)
+
 passwordToggleInputs.forEach((toggle) => {
     toggle.addEventListener("click", passwordToggle)
 })
@@ -30,4 +34,11 @@ function passwordToggle() {
 
     referencePasswordInput.type = this.checked ? "text" : "password"
     showHideIcon.classList.toggle("close")
+}
+
+deleteUserInputs.forEach((button) => {
+    button.addEventListener("click", deleteUser)
+})
+function deleteUser() {
+    console.log(this)
 }

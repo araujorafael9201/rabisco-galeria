@@ -22,7 +22,6 @@ include('connection.php');
         <div id="deleteUser"></div>
     </div>
 </div>
-
 */
 
 $sql = 'SELECT * FROM users';

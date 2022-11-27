@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require('./php/getUsers.php');
+require('./php/get-users.php');
 
 
 if (!isset($_SESSION['user']))

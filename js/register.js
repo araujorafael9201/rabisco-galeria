@@ -55,7 +55,7 @@ form.addEventListener("submit", (e) => {
         password: passwordInput.value
     }
 
-    fetch("./php/registerUser.php", {
+    fetch("./php/register-user.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
