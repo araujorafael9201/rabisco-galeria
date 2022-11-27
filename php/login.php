@@ -30,6 +30,7 @@ foreach ($users as $user) {
     }
 }
 
+$conn = null;
 // If not logged
 if (!$_SESSION['user']['logged'])
     header('Location: ../login.html?message=Credenciais%20Inválidas!');

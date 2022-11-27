@@ -17,7 +17,6 @@ deleteButton.addEventListener("click", () => {
 const passwordToggleInputs = document.querySelectorAll("#showPasswordInput")
 const deleteUserInputs = document.querySelectorAll("#deleteUser")
 
-console.log(deleteUserInputs)
 
 passwordToggleInputs.forEach((toggle) => {
     toggle.addEventListener("click", passwordToggle)
@@ -40,5 +39,14 @@ deleteUserInputs.forEach((button) => {
     button.addEventListener("click", deleteUser)
 })
 function deleteUser() {
-    console.log(this)
+    let id;
+
+    const referenceParentElement = 
+        this.parentElement
+            .parentElement
+            .querySelector("#id")
+    
+    id = referenceParentElement.innerText
+    
+    window.location.href = "./php/delete-user.php?id=" + id
 }

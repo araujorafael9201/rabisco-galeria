@@ -57,5 +57,6 @@ function displayUsers() {
     }
 }
 
+$conn = null;
 
 ?>

@@ -41,6 +41,7 @@ $password = md5($decode['password']);
 try {
     $sql = "INSERT INTO users VALUES (NULL,'$name','$email','$password');";
     $conn->query($sql);
+    $conn = null;
     
     $messageStruct = [
         'id' => 1,
