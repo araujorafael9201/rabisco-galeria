@@ -36,7 +36,7 @@ function displayLogin() {
     <div class="nav-links">
         <ul>
             <li><a href="index.php">Início</a></li>
-            <li><a href="contact.html">Contato</a></li>
+            <li><a href="contact.php">Contato</a></li>
         </ul>
     </div>
     <div class="nav-logo">

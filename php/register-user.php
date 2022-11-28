@@ -10,7 +10,7 @@ if (!isset($decode['name']) || empty($decode['name'])) {
         'message' => 'Insira um nome valido'
     ];
     $message = json_encode($messageStruct);
-    print_r($message);
+    echo $message;
     die();
 }
 

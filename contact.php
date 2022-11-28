@@ -1,3 +1,16 @@
+<?php 
+session_start();
+include('./php/session-variables.php');
+
+function displayLogin() {
+    if (!$_SESSION['user']['logged']) {
+        return '<a href="login.html">Logar</a>';
+    }
+    return "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,16 +37,15 @@
     </label>
     <div class="nav-links">
         <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="contact.html">Contato</a></li>
+            <li><a href="index.php">Início</a></li>
+            <li><a href="contact.php">Contato</a></li>
         </ul>
     </div>
     <div class="nav-logo">
         <h1>Rabisco</h1>
     </div>
     <div class="nav-login">
-        <a href="#">Logar</a>
-        <!-- <a href="#" class="logged">Olá, usuário</a> -->
+        <?php echo displayLogin(); ?>
     </div>
 </header>
 
@@ -71,6 +83,8 @@
         </form>
     </div>
 </main>
+
+<section class="alert-box green"></section>
 
 </body>
 </html>

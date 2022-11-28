@@ -117,6 +117,42 @@ main .right form #message {
     font-weight: 500;
 }
 
+/*** ALERT BOX ***/
+.alert-box {
+    --color-bg-green: #dff0d8;
+    --color-txt-green: #3c763d;
+    --color-bg-red: #f2dede;
+    --color-txt-red: #a94442;
+
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    translate: -50% -100%;
+    z-index: 4;
+    border: 0.1rem solid;
+    width: 18rem;
+    height: 3rem;
+    padding: 0 0.6rem;
+    border-radius: 0 0 0.8rem 0.8rem;
+    transition: 200ms;
+}
+.alert-box.green {
+    background-color: var(--color-bg-green);
+    color: var(--color-txt-green);
+    border-color: var(--color-txt-green);
+}
+.alert-box.red {
+    background-color: var(--color-bg-red);
+    color: var(--color-txt-red);
+    border-color: var(--color-txt-red);
+}
+.alert-box.show {
+    translate: -50%;
+}
+
+
 /*** RESPONSIVENESS ***/
 @media (min-width: 950px) {
     main {
