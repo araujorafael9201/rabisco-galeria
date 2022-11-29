@@ -38,8 +38,9 @@ $message = $decode['message'];
 
 $emailBody = "
 Olá! $first_name $last_name te enviou um email.<br>
-Endereço: $email<br>
+Endereço eletrônico: $email<br>
 <br>
+Mensagem:<br>
 $message
 ";
 
