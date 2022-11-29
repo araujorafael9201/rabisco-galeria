@@ -37,44 +37,50 @@ $subject = $decode['subject'];
 $message = $decode['message'];
 
 $emailBody = "
-Olá! $first_name $last_name te enviou um email.
-Endereço: $email
-
+Olá! $first_name $last_name te enviou um email.<br>
+Endereço: $email<br>
+<br>
 $message
 ";
 
-// Callback
-$messageStruct = [
-    'id' => 1,
-    'message' => 'Email enviado!'
-];
-$message = json_encode($messageStruct);
-echo $message;
 
-// Send mail
-$mail = new PHPMailer(true);
+try {
+    // Send mail
+    $mail = new PHPMailer(true);
+    
+    // SMTP server (needs configuration)
+    $host = 'smtp.gmail.com';
+    $username = 'rabiscoinbox@gmail.com';
+    $password = 'yvlddbsufexxeshz';
+    $port = 465;
+    
+    $mail->isSMTP();
+    $mail->Host = $host;
+    $mail->SMTPAuth = true;
+    $mail->Username = $username;
+    $mail->Password = $password;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = $port;
+    
+    $mail->setFrom($username);
+    $mail->addAddress($username);
+    $mail->isHTML(true);
+    
+    $mail->Subject = $subject;
+    $mail->Body = $emailBody;
+    
+    $mail->send();
+    
+    // Callback
+    $messageStruct = [
+        'id' => 1,
+        'message' => 'Email enviado!'
+    ];
+    $message = json_encode($messageStruct);
+    echo $message;
+} catch(Exception $e) {
+    errorEmail();
+}
 
-// SMTP server (needs configuration)
-$host = 'smtp-relay.sendinblue.com';
-$username = 'stivenfonseca201@gmail.com';
-$password = 'C36v4pNIcErQXtxJ';
-$port = 587;
-
-$mail->isSMTP();
-$mail->Host = $host;
-$mail->SMTPAuth = true;
-$mail->Username = $username;
-$mail->Password = $password;
-$mail->SMTPSecure = 'ssl';
-$mail->Port = $port;
-
-$mail->setFrom($username);
-$mail->addAddress($username);
-$mail->isHTML(true);
-
-$mail->Subject = $subject;
-$mail->Body = $emailBody;
-
-$mail->send();
 
 ?>

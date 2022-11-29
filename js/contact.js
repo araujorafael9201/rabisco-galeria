@@ -89,7 +89,9 @@ form.addEventListener('submit', (e) => {
         },
         body: JSON.stringify( formData ) 
     }).then((res) => {
-        let message = res.json()
-        alertBox(message["id"], message["message"])
+        return res.json()
+    }).then((data) => {
+        let message = data
+        alertBox(message['id'], message['message'])
     })
 })
