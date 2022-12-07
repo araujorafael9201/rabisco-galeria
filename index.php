@@ -106,6 +106,8 @@ function displayLogin() {
                 <p class="description"></p>
             </div>
         </div>
+
+        
     </div>
 </main>
 

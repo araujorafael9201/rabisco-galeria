@@ -3,8 +3,7 @@ function closeModal() {
     modal.style.display = "none"
 }
 
-// Getting all the info about the selected post and
-// display the modal
+// Getting all the info about the selected post and display the modal
 function changeModal() {
     // Getting every information about the post
     let title = this.querySelector('.info .title').textContent
@@ -34,11 +33,30 @@ function changeModal() {
     modal.style.display = "block"
 }
 
+let pageOn = 0;
+async function loadPosts() {
+    let response = await fetch('./php/get-publi.php', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({"page": pageOn})
+    })
+
+    postContainer.append(response)
+
+    // Getting every post to have the modal function
+    posts.forEach((post) => { post.removeEventListener('click', changeModal) })
+    posts.forEach((post) => { post.addEventListener('click', changeModal) })
+
+    pageOn++
+}
 
 // Getting all the elements to be used
 const modal = document.querySelector('.modal')
 const modalContent = document.querySelector('.modal-content')
 const modalCloseButton = document.querySelector('.close-modal')
+const postContainer = document.querySelector('.gallery-grid')
 let posts = document.querySelectorAll('.post')
 
 // Close function for the modal
@@ -49,7 +67,4 @@ window.addEventListener('click', e => {
     }
 })
 
-// Getting every post to have the modal function
-posts.forEach((post) => {
-    post.addEventListener('click', changeModal)
-})
+loadPosts()
