@@ -28,12 +28,12 @@ if (isset($_POST['submit'])) {
     $new_name = getName(32).'-'.date('m-d-y-H-i-s');
     $creation_date = date('y-m-d H:i:s');
     
-    move_uploaded_file($image['temp_name'], "../posts/img/{$new_name}");
+    move_uploaded_file($image['tmp_name'], "../posts/img/{$new_name}");
 
     $sql = "INSERT INTO publications VALUES(NULL, '$title', '$description', $author, $creation_date, '$new_name')";
-    $conn->query($sql);
+    // $conn->query($sql);
     $conn = null;
 }
 
-header('Location: ../profile.php');
+// header('Location: ../profile.php');
 ?>
