@@ -34,22 +34,33 @@ function changeModal() {
 }
 
 let pageOn = 0;
+let stop = false;
 async function loadPosts() {
-    let response = await fetch('./php/get-publi.php', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({"page": pageOn})
-    })
+    try {
+        let response = await fetch('./php/get-publi.php', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({"page": pageOn})
+        }).then((data) => data.text())
+        
+        if (!response) {
+            stop = true
+            return
+        }
 
-    postContainer.append(response)
+        let htmlResponse = new DOMParser().parseFromString(response, 'text/html')
+        for (const post of htmlResponse.querySelectorAll('.post')) {
+            postContainer.append(post)
+        }
 
-    // Getting every post to have the modal function
-    posts.forEach((post) => { post.removeEventListener('click', changeModal) })
-    posts.forEach((post) => { post.addEventListener('click', changeModal) })
-
-    pageOn++
+        // Getting every post to have the modal function
+        posts.forEach((post) => { post.removeEventListener('click', changeModal) })
+        posts.forEach((post) => { post.addEventListener('click', changeModal) })
+    
+        pageOn++
+    } catch {}
 }
 
 // Getting all the elements to be used
@@ -67,4 +78,9 @@ window.addEventListener('click', e => {
     }
 })
 
-loadPosts()
+window.addEventListener('scroll', () => {
+    if (!(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight)) return
+    if (stop) return
+
+    loadPosts()
+})

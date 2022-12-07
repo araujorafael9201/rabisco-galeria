@@ -53,9 +53,9 @@ function displayLogin() {
 
 <main>
     <!-- TAB SELECTOR -->
-    <input type="radio" name="tabs" id="publish">
+    <input type="radio" name="tabs" id="publish" checked>
     <input type="radio" name="tabs" id="publications">
-    <input type="radio" name="tabs" id="manage" checked>
+    <input type="radio" name="tabs" id="manage">
 
     <!-- TAB LABELS -->
     <div class="nav">
@@ -69,13 +69,13 @@ function displayLogin() {
 
     <!-- ACTUAL TABS -->
     <div class="tab" id="publish">
-        <form action="" class="publish">
+        <form action="./php/post-publi.php" class="publish" method="POST">
             <p>Título</p>
-            <input type="text" name="title">
+            <input type="text" name="title" require>
             <p>Imagem</p>
             <label for="sendImage">Enviar Imagem</label>
             <span id="imageName"></span>
-            <input type="file" accept="image/*" id="sendImage" class="hide">
+            <input name="image" type="file" accept="image/*" id="sendImage" class="hide" require>
             <p>Descrição</p>
             <textarea name="description"></textarea>
             <input type="submit" value="Publicar">

@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `publications` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` TEXT DEFAULT NULL,
   `author` int(11) DEFAULT NULL,
   `creation_date` datetime DEFAULT NULL,
   `filename` varchar(255) NOT NULL
