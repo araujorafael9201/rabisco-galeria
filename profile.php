@@ -69,7 +69,7 @@ function displayLogin() {
 
     <!-- ACTUAL TABS -->
     <div class="tab" id="publish">
-        <form action="./php/post-publi.php" class="publish" method="POST">
+        <form action="./php/post-publi.php" class="publish" method="POST" enctype="multipart/form-data">
             <p>Título</p>
             <input type="text" name="title" require>
             <p>Imagem</p>
@@ -78,7 +78,7 @@ function displayLogin() {
             <input name="image" type="file" accept="image/*" id="sendImage" class="hide" require>
             <p>Descrição</p>
             <textarea name="description"></textarea>
-            <input type="submit" value="Publicar">
+            <input type="submit" value="Publicar" name="submit">
         </form>
     </div>
 
