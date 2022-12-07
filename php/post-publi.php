@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     
     move_uploaded_file($image['temp_name'], "../posts/img/{$new_name}");
 
-    $sql = "INSERT INTO publications VALUES(NULL, '$title', '$description', $author, $creation_date, $new_name)";
+    $sql = "INSERT INTO publications VALUES(NULL, '$title', '$description', $author, $creation_date, '$new_name')";
     $conn->query($sql);
     $conn = null;
 }
