@@ -16,7 +16,7 @@ function changeModal() {
     title = !title ? "vazio" : title
     date = !date ? "vazio" : date
     author = !author ? "vazio" : author
-    description = !description ? "vazio" : description
+    // description = !description ? "vazio" : description
     img = !img ? "vazio" : img
 
 
@@ -52,13 +52,10 @@ async function loadPosts() {
 
         let htmlResponse = new DOMParser().parseFromString(response, 'text/html')
         for (const post of htmlResponse.querySelectorAll('.post')) {
+            post.addEventListener('click', changeModal)
             postContainer.append(post)
         }
 
-        // Getting every post to have the modal function
-        posts.forEach((post) => { post.removeEventListener('click', changeModal) })
-        posts.forEach((post) => { post.addEventListener('click', changeModal) })
-    
         pageOn++
     } catch {}
 }
@@ -84,3 +81,6 @@ window.addEventListener('scroll', () => {
 
     loadPosts()
 })
+
+// Getting every post to have the modal function
+posts.forEach((post) => { post.addEventListener('click', changeModal) })

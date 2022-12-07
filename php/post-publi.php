@@ -25,15 +25,15 @@ if (isset($_POST['submit'])) {
     $ext = explode('.', $image['name']);
     $ext = end($ext);
 
-    $new_name = getName(32).'-'.date('m-d-y-H-i-s');
-    $creation_date = date('y-m-d H:i:s');
+    $new_name = getName(32).'-'.date('m-d-y-H-i-s').'.'.$ext;
+    $creation_date = date('Y-m-d H:i:s');
     
     move_uploaded_file($image['tmp_name'], "../posts/img/{$new_name}");
 
-    $sql = "INSERT INTO publications VALUES(NULL, '$title', '$description', $author, $creation_date, '$new_name')";
-    // $conn->query($sql);
+    $sql = "INSERT INTO publications VALUES(NULL, '$title', '$description', $author, '$creation_date', '$new_name')";
+    $conn->query($sql);
     $conn = null;
 }
 
-// header('Location: ../profile.php');
+header('Location: ../profile.php');
 ?>
