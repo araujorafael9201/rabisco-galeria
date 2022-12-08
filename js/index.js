@@ -84,3 +84,4 @@ window.addEventListener('scroll', () => {
 
 // Getting every post to have the modal function
 posts.forEach((post) => { post.addEventListener('click', changeModal) })
+loadPosts()

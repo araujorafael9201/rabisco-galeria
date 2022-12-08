@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require('./php/get-users.php');
+include('./php/get-my-publi.php');
 
 
 if (!isset($_SESSION['user']))
@@ -84,29 +85,7 @@ function displayLogin() {
 
     <div class="tab" id="publications">
         <div class="posts">
-            <div class="post">
-                <div id="deleteButton"><img src="img/trash.svg" alt=""></div>
-                <img src="https://via.placeholder.com/160x130" alt="">
-                <div class="info">
-                    <h3 class="title">Titulo</h3>
-                    <div class="date">Data</div>
-                    <div class="author">Autor</div>
-                    <p class="description">
-                        Descrição
-                    </p>
-                </div>
-            </div>
-            <div class="post">
-                <img src="https://via.placeholder.com/160x130" alt="">
-                <div class="info">
-                    <h3 class="title">Titulo</h3>
-                    <div class="date">Data</div>
-                    <div class="author">Autor</div>
-                    <p class="description">
-                        Descrição
-                    </p>
-                </div>
-            </div>
+            <?php showMyPublications(); ?>
         </div>
     </div>
 

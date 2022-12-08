@@ -152,6 +152,9 @@ main #publications .posts .post .info {
     height: max-content;
 }
 main #publications .posts .post .info .title {
+    width: 50%;
+    height: 1.3rem;
+    overflow: hidden;
     margin-right: auto;
     margin-bottom: 0.3rem;
 }
@@ -173,15 +176,28 @@ main #publications .posts .post .info .description {
 }
 main #publications .posts .post #deleteButton {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0.5rem;
     left: 0.5rem;
     aspect-ratio: 1/1;
     width: 1.5rem;
+    border-radius: 50%;
+    border: 0.25rem solid #FFF;
+    background-color: #FFF;
 }
 main #publications .posts .post #deleteButton img {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    filter: 
+        invert(19%) 
+        sepia(99%) 
+        saturate(7059%) 
+        hue-rotate(358deg) 
+        brightness(103%) 
+        contrast(110%);
 }
 
 /*** MANAGE TAB ***/
