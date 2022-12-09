@@ -6,7 +6,10 @@ function displayLogin() {
     if (!$_SESSION['user']['logged']) {
         return '<a href="login.html">Logar</a>';
     }
-    return "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
+    return "
+        <a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>
+        <a class='exit' href='php/logout.php'><img src='img/x-symbol.svg'></a>
+    ";
 }
 
 ?>

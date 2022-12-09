@@ -1,12 +1,22 @@
 <?php
 session_start();
 
+$admin = 
+    $_SESSION['user']['email'] == 'admin@admin' ?
+    true : false;
+
+if (!$admin) header('Location: profile.php');
+
 function displayLogin() {
     if (!$_SESSION['user']['logged']) {
         return '<a href="login.html">Logar</a>';
     }
-    return "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
+    return "
+        <a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>
+        <a class='exit' href='php/logout.php'><img src='img/x-symbol.svg'></a>
+    ";
 }
+
 ?>
 
 <!DOCTYPE html>

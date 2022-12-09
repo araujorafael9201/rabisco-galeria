@@ -3,6 +3,9 @@ session_start();
 require('./php/get-users.php');
 include('./php/get-my-publi.php');
 
+$admin = 
+    $_SESSION['user']['email'] == 'admin@admin' ?
+    true : false;
 
 if (!isset($_SESSION['user']))
     header('Location: login.html');
@@ -11,7 +14,10 @@ function displayLogin() {
     if (!$_SESSION['user']['logged']) {
         return '<a href="login.html">Logar</a>';
     }
-    return "<a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>";
+    return "
+        <a href='profile.php' class='logged'>Olá, {$_SESSION['user']['name']}</a>
+        <a class='exit' href='php/logout.php'><img src='img/x-symbol.svg'></a>
+    ";
 }
 
 ?>
@@ -56,7 +62,9 @@ function displayLogin() {
     <!-- TAB SELECTOR -->
     <input type="radio" name="tabs" id="publish" checked>
     <input type="radio" name="tabs" id="publications">
-    <input type="radio" name="tabs" id="manage">
+    <?php if ($admin) {?>
+        <input type="radio" name="tabs" id="manage">
+    <?php } ?>
 
     <!-- TAB LABELS -->
     <div class="nav">
@@ -64,8 +72,10 @@ function displayLogin() {
         <div class="vl"></div>
         <label for="publications">Minhas postagens</label>
         <!-- if is admin user -->
-        <div class="vl"></div>
-        <label for="manage">Administrar usuarios</label>
+        <?php if ($admin) {?>
+            <div class="vl"></div>
+            <label for="manage">Administrar usuarios</label>
+        <?php } ?>
     </div>
 
     <!-- ACTUAL TABS -->
@@ -89,14 +99,16 @@ function displayLogin() {
         </div>
     </div>
 
-    <div class="tab" id="manage">
-        <div class="link-container">
-            <a href="register.php" class="register-link">Registrar usuário</a>
+    <?php if ($admin) { ?>
+        <div class="tab" id="manage">
+            <div class="link-container">
+                <a href="register.php" class="register-link">Registrar usuário</a>
+            </div>
+            <div class="users">
+                <?php displayUsers();?>
+            </div>
         </div>
-        <div class="users">
-            <?php displayUsers();?>
-        </div>
-    </div>
+    <?php } ?>
 </main>
 
 </body>

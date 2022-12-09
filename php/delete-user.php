@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+$admin = 
+    $_SESSION['user']['email'] == 'admin@admin' ?
+    true : false;
+
+if (!$admin) header('Location: profile.php');
+
 if (!isset($_GET['id']) || empty($_GET['id']))
     header('Location: ../profile.php');
 
