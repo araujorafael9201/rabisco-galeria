@@ -1,3 +1,4 @@
 posts/img/*
 
 !posts/img/.gitkeep
+.env

@@ -2,9 +2,13 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require('phpmailer/vendor/phpmailer/phpmailer/src/Exception.php');
-require('phpmailer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
-require('phpmailer/vendor/phpmailer/phpmailer/src/SMTP.php');
+require('packets/vendor/autoload.php');
+require('packets/vendor/phpmailer/phpmailer/src/Exception.php');
+require('packets/vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require('packets/vendor/phpmailer/phpmailer/src/SMTP.php');
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/..');
+$dotenv->load();
 
 function errorEmail() {
     $messageStruct = [
@@ -50,10 +54,10 @@ try {
     $mail = new PHPMailer(true);
     
     // SMTP server (needs configuration)
-    $host = 'smtp.gmail.com';
-    $username = 'rabiscoinbox@gmail.com';
-    $password = 'yvlddbsufexxeshz';
-    $port = 465;
+    $host = $_ENV['SMTP_HOST'];
+    $username = $_ENV['SMTP_USER'];
+    $password = $_ENV['SMTP_PASS'];
+    $port = $_ENV['SMTP_PORT'];
     
     $mail->isSMTP();
     $mail->Host = $host;
