@@ -1,2 +1,4 @@
-obras/*
-Stiven Peladinho.
+posts/img/*
+
+!posts/img/.gitkeep
+.env

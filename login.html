@@ -4,56 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Rabisco</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- LOGIN SCRIPT -->
+    <script src="js/login.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <ul class="header">
-            <div class="header-content">
-                <div class="links header-section">
-                    <li><a href="/">Início</a></li>
-                    <li><a href="">Galeria</a></li>
-                    <li><a href="">Sobre</a></li>
-                </div>
-                <li class="logo header-section">
-                    <a href="/">Rabisco</a>
-                </li>
-                <div class="search header-section">
-                    <form action="">
-                        <input type="text" placeholder="Pesquise Aqui...">
-                        <input type="submit" value="Enviar">
-                    </form>
-                </div>
-            </div>
 
-            <div class="header-collapsed">
-                <a class="logo-collapsed" href="/">Rabisco</a>
-                <button onclick="toggleContent()" class="collapsable-control">
-                    <img src="static/img/collapse.svg" alt="">
-                </button>
-            </div>
-        </ul>
-
-        <div class="card">
-            <h1>Login</h1>
-            <form action="php/login.php" method="POST">
-                <div class="input-group">
-                    <label for="email">E-mail</label>
-                    <input type="text" name="email" placeholder='E-mail'>
-                </div>
-                <div class="input-group">
-                    <label for="password">Senha</label>
-                    <input type="password" name="senha" placeholder='Senha'>
-                </div>
-                <div class="input-group">
-                    <input type="submit" value='Login'>
-                </div>
-            </form>
+<main>
+    <form action="php/login.php" method="POST">
+        <h2 class="title">Entrar</h2>
+        <div class="row">
+            <input type="email" name="email" placeholder="E-mail" required>
         </div>
-    </div>
+        <div class="row">
+            <input type="password" name="password" id="password" placeholder="Senha" required>
+            <input type="checkbox" name="" id="passToggle">
+            <label for="passToggle"></label>
+        </div>
+        <div class="row">
+            <strong></strong>
+        </div>
+        <div class="row">
+            <input type="submit" value="Logar">
+        </div>
+    </form>
+</main>
 
-    <script src="main.js"></script>
 </body>
 </html>

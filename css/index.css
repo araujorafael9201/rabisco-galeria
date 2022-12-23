@@ -1,0 +1,199 @@
+/* IMPORTING FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+
+/*** RESET PAGE CONFIGURATION ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*** DEFINING COLORS AND SIZE ***/
+:root{
+    --background-color: rgba(0,0,0,0.8);
+    --primary-color: rgba(0,0,0,0.8);
+    --secondary-color: rgba(255,255,255,1);
+}
+
+/*** BODY STYLING ***/
+body {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: 0 6%;
+}
+
+/*** MAIN SECTION ***/
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 90vh;
+    background-color: var(--secondary-color);
+    padding: 2rem 10% 2rem 10%;
+}
+main .title {
+    font-family: 'Freehand', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-decoration: underline;
+}
+
+main .gallery-grid {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 55vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
+    grid-gap: 1rem;
+}
+main .gallery-grid .post {
+    /* margin: 0 auto; */
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+main .gallery-grid .post img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+main .gallery-grid .post .info {
+    display: none;
+}
+
+/* MODAL STYLING */
+.modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal .modal-content {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 65%;
+    width: 80%;
+    background-color: var(--secondary-color);
+}
+
+.modal .modal-content .img-container {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+}
+
+.modal .modal-content .img-container > img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal .modal-content .info {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 50%;
+    padding: 4%;
+}
+
+.modal .modal-content .info .title {
+    display: inline-block;
+    width: 69%;
+    font-size: 1rem;
+}
+
+.modal .modal-content .info .date {
+    display: inline-block;
+    width: 29%;
+    text-align: end;
+    font-size: 0.8rem;
+}
+
+.modal .modal-content .info .author {
+    display: block;
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.modal .modal-content .info .description {
+    display: block;
+    width: 100%;
+    height: 80%;
+    margin-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal .close-modal {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal .close-modal img {
+    filter: invert(1);
+}
+
+.modal.show {
+    display: block;
+}
+
+
+/* RESPONSIVINESS */
+@media (max-width: 420px) {
+    body {
+        padding: 0;
+    }
+}
+
+@media (min-width: 720px) {
+    main .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 620px) {
+    .modal .modal-content {
+        display: block;
+        width: 80%;
+        height: 85%;
+    }
+
+    .modal .modal-content .img-container {
+        width: 100%;
+        height: 50%;
+    }
+    .modal .modal-content .info {
+        width: 100%;
+        height: 43%;
+    }
+}
+
+@media (max-width: 280px) {
+    .modal .modal-content .info {
+        height: 40%;
+    }
+}

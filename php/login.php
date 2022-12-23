@@ -1,38 +1,37 @@
 <?php
 session_start();
+include('connection.php');
 
-# Conexão com o db
-$conn = new mysqli("localhost", "user", "pwd", "db");
+// Verifying variables
+if (empty($_POST['email']) || empty($_POST['password']))
+    header('Location: ../login.html?message=Login%20Inválido!');
+$_SESSION['user']['logged'] = FALSE;
 
-# Verifica se a conexão com o db está ok
-if ($conn->connect_errno) {
-    echo "Erro na Conexão com o Banco de Dados" . $conn->connect_errno . $conn->connect_error;
-}
-
-# Pega os usuários do db
-$result = $conn->query("SELECT * FROM user");
-
-# Pega informações do form
+// Get information from the form
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$password = md5($_POST['password']);
 
+// Get information from the database
+$sql = 'SELECT * FROM users';
+$statement = $conn->query($sql);
 
-# Roda por todos os usuários e compara com as informações fornecidas
-if ($users = $result->fetch_all()) {
-    foreach($users as $user) {
-        if ($user[2] == $email && $user[3] == $senha) {
-
-            # Fecha a conexão
-            $conn->close();
-
-            # Redireciona para o início se as informações estão corretas
-            session_regenerate_id();
-            $_SESSION['logado'] = TRUE;
-            $_SESSION['id'] = $user[0];
-        }
+// Matching information
+$users = $statement->fetchall();
+foreach ($users as $user) {
+    if ($user['email'] == $email &&
+        $user['password'] == $password
+    ) {
+        $_SESSION['user']['logged'] = TRUE;
+        $_SESSION['user']['id'] = $user['id'];
+        $_SESSION['user']['name'] = $user['name'];
+        $_SESSION['user']['email'] = $user['email'];
+        header('Location: ../profile.php');
+        break;
     }
 }
 
-header('location: ../index.php');
-
+$conn = null;
+// If not logged
+if (!$_SESSION['user']['logged'])
+    header('Location: ../login.html?message=Credenciais%20Inválidas!');
 ?>
