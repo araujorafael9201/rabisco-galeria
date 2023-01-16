@@ -18,9 +18,11 @@ function getName($n) {
 
 if (isset($_POST['submit'])) {
     $title = $_POST['title'] ?? die('tit');
-    $description = $_POST['description'] ?? die('desc');
+    $description = $_POST['description'];
     $image = $_FILES['image'] ?? die('img');
     $author = $_SESSION['user']['id'];
+    
+    if (empty($title) || empty($image)) die('Erro!');
 
     $ext = explode('.', $image['name']);
     $ext = end($ext);
