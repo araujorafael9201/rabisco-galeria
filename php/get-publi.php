@@ -5,7 +5,7 @@ $input = file_get_contents('php://input');
 $decode = json_decode($input, true);
 
 try {
-    $limit = 9;
+    $limit = 12;
     $row = (int)$decode['page'] * $limit;
 
     $sql = "SELECT * FROM publications LIMIT $row,$limit";
